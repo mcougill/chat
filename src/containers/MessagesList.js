@@ -1,27 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import MessagesListComponent from "../components/MessagesList";
 
-const MessagesList = ({ messages }) => (
-    <section if="message-list">
-        <ul>
-            {messages.map(message => (
-                <Messages
-                    key={message.id}
-                    {...message}
-                />
-            ))}
-        </ul>
-    </section>
-);
 
-MessagesList.PropTypes = {
-    messages: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            message: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired
-        }).isRequired
-    ).isRequired
-}
-
-export default MessagesList;
+export const MessagesList = connect(state => ({
+    messages: state.messages
+}), {})(MessagesListComponent)
