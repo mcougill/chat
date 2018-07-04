@@ -27,3 +27,5 @@ export const populateUsersList = (users) => ({
     type: types.USERS_LIST,
     users
 });
+
+export default addUser;
